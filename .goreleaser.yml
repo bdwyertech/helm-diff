@@ -9,7 +9,8 @@ builds:
       - -mod=vendor
       - -trimpath
     ldflags:
-      - '-s -w -X github.com/databus23/helm-diff/v3/cmd.Version={{.Version}}'
+      - -s -w
+      - -X github.com/databus23/helm-diff/v3/cmd.Version={{.Version}}
     goos:
       - darwin
       - linux
@@ -23,3 +24,15 @@ archives:
     files:
       - LICENSE
       - plugin.yaml
+
+checksum:
+  name_template: 'checksums.txt'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - Merge pull request
+      - Merge branch
